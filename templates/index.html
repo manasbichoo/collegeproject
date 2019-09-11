@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project Display</title>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>ENTER YOUR PROJECT LINK</h2>
+
+<form action="/result" method = "POST">
+  Project Link:<br>
+  <input type="text" name="URL">
+  <br>
+  
+  <input type="submit" value="Submit">
+</form> 
+
+<h2>LINK: {{ result }}</h2>
+
+<div class=page>
+  <h1>Project Table</h1>
+  {{ table|safe }}
+</div>
+
+</body>
+</html>
