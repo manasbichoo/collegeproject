@@ -18,7 +18,7 @@ def new():
 
 @app.route('/result', methods = ['POST', 'GET']) # /result route, allowed request methods; POST, and GET
 def predict():
-	conn = sqlite3.connect(r"C:\Users\manas16b\Desktop\COLLEGE PROJECT\example1.db")
+	conn = sqlite3.connect(r"C:\Users\Hp\Desktop\COLLEGE PROJECTS\collegeproject\example.db")
 	if request.method == 'POST': 
 		result = request.form["URL"]
 		
@@ -36,6 +36,7 @@ def predict():
 				
 		for link in soup.find_all('a',attrs={'itemprop':'name codeRepository'}):
 			df['Link'].append('https://github.com'+str(link.get('href')))
+		
 		nm=soup.find('span', attrs={'class':'p-name vcard-fullname d-block overflow-hidden'})
 		name=nm.text
 
@@ -52,7 +53,7 @@ def predict():
 		
 		#Database
 		cur = conn.cursor()
-		df1.to_sql('Projects', conn,if_exists='append', index=False) # - writes the pd.df to SQLIte DB
+		df1.to_sql('Projects', conn,if_exists='replace', index=False) # - writes the pd.df to SQLIte DB
 		pd.read_sql('select * from Projects', conn)
 		conn.commit()
 		conn.close()
