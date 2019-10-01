@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Radio buttons feedback</title>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<h2>ENTER YOUR FEEDBACK</h2>
+
+<form action="/test" method = "POST">
+  Name:<br>
+  <input type="text" name="Name">
+  <br>
+
+  <div class="radio">
+											<h4>Availability of Computers :-</h4>
+											<label><input   name="ac" id="ac1" value=0.5 type="radio" >Satisfied</label>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+											<label><input aria-required="true"  name="ac" id="ac2" value=-0.5 type="radio">Dissatisfied</label><br>
+											<label><input   name="ac" id="ac3" value=1 type="radio" >Very Satisfied
+											</label>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+											<label><input   name="ac" id="ac4" value=-1 type="radio" >Very Dissatisfied</label>
+										</div><hr>
+  
+  <input type="submit" value="Submit">
+</form> 
+
+<h2>{{ result }}</h2>
+
+
+
+</body>
+</html>
